@@ -118,7 +118,7 @@ module View
       def load_from_tile
         @slots = @tile.cities.map(&:slots).sum + @tile.towns.size
 
-        revenue_stops = @tile.cities + @tile.towns + @tile.offboards
+        revenue_stops = @tile.stops
         revenues = revenue_stops.map(&:revenue).uniq
 
         return if revenues.empty?

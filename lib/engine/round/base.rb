@@ -99,6 +99,7 @@ module Engine
       end
 
       def upgradeable_tiles(hex)
+        puts "** #{hex.inspect}"
         potential_tiles(hex).map do |tile|
           tile.rotate!(0) # reset tile to no rotation since calculations are absolute
           tile.legal_rotations = legal_rotations(hex, tile)
@@ -129,6 +130,7 @@ module Engine
 
       def potential_tiles(hex)
         colors = @game.phase.tiles
+        puts "** #{colors}"
         tiles = @game.tiles.select { |tile| colors.include?(tile.color) }
         hex.tile.upgrade_tiles(tiles)
       end

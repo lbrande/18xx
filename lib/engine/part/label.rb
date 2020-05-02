@@ -13,12 +13,8 @@ module Engine
         @label.to_s
       end
 
-      def ==(other)
-        if other&.label? && (@label == other.to_s)
-          true
-        else
-          false
-        end
+      def matches?(other)
+        other&.label? && @label == other.to_s
       end
 
       def label?
